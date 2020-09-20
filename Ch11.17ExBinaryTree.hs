@@ -100,6 +100,11 @@ main = do
   testInorder
   testPostorder
 
--- Write foldr for BinaryTree
+-- Write foldr for BinaryTree   see https://en.wikibooks.org/wiki/Haskell/Lists_III
 foldTree :: (a -> b -> b) -> b -> BinaryTree a -> b
-foldTree f b tree = foldr f b (inorder tree)
+foldTree f b tree = foldr f b (inorder tree)  -- see earlier that a list was developed from a inorder  (Node left a right)
+
+-- notes--
+-- foldr :: (a -> b -> b) -> b -> [a] -> b -- compare foldr with foldTree & q2 a list was developed from a inorder (Node left a right)
+-- foldr f acc []     = acc
+-- foldr f acc (x:xs) = f x (foldr f acc xs)
