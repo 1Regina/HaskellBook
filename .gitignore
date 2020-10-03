@@ -1,0 +1,7 @@
+# ignore the folders
+.stack-work/
+.vscode/
+
+# ignore the files
+.yaml
+.yaml.lock
