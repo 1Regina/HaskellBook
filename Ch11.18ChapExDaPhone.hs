@@ -88,6 +88,7 @@ mostPopularLetter x = fst (maximumBy (comparing snd) letterCounts) where
 -- >>> mostPopularLetter "Hello"
 -- 'l'
 
+--need help--
 mostPopularLetterCosts1 :: [String] -> [(Char, Presses)]
 mostPopularLetterCosts1 convo = map (\x -> (x, (fingerTaps $ (reverseTaps phone x)))) (map mostPopularLetter convo)
 -- >>> mostPopularLetterCosts1 convo
