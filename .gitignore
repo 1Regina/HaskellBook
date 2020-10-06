@@ -1,6 +1,7 @@
 # ignore the folders
 .stack-work/
 .vscode/
+others/
 
 # ignore the files
 .yaml

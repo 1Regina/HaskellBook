@@ -45,12 +45,12 @@
 module DetermineTheType where
 -- simple exampleexample=1
 --Q1
-a) (* 9) 6 :: Num a->a ; Value = 54
-b) head [(0,"doge"), (1,"kitteh")] :: Num a => (a, [Char]); Value = (0, "doge")
-c) head [(0:: Integer,"doge"), (1,"kitteh")] :: (Integer, [Char]); Value = (0, "doge")
-d) if False then True else False :: Bool; Value = False
-e) length [1, 2, 3, 4, 5] :: Int ; Value = 5
-f) (length [1, 2, 3, 4]) > (length "TACOCAT" ) :: Bool ;  Value = False
+-- a) (* 9) 6 :: Num a->a ; Value = 54
+-- b) head [(0,"doge"), (1,"kitteh")] :: Num a => (a, [Char]); Value = (0, "doge")
+-- c) head [(0:: Integer,"doge"), (1,"kitteh")] :: (Integer, [Char]); Value = (0, "doge")
+-- d) if False then True else False :: Bool; Value = False
+-- e) length [1, 2, 3, 4, 5] :: Int ; Value = 5
+-- f) (length [1, 2, 3, 4]) > (length "TACOCAT" ) :: Bool ;  Value = False
 
 --Q2
 x = 5
