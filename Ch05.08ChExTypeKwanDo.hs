@@ -1,4 +1,4 @@
-# Not able to check in GHCI
+-- Not able to check in GHCI
 --Q1
 f :: Int-> String
 f = undefined -- int2string

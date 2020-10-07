@@ -1,3 +1,4 @@
+-- SECTION 5.3 Exercise
 -- Q1 Functions
 --a) mot :: Bool -> Bool
 --b) length :: Foldable t => t a -> Int
@@ -11,6 +12,8 @@
  --d) length :: [a] -> Int
  --e) (<) :: Ord a => a -> a -> Bool
 
+
+--Section 5.4 Exercises
  --Type Arguments - tip give GHCi an undefined to bind the signature to
  -- u = undefined 
  -- f:: a-> a -> a -> a ; f = u 
@@ -26,6 +29,8 @@
  --Q 8 If the type of kessel is (Ord a, Num b) => a -> b -> a, then the type of kessel 1 (2 :: Integer) is (Ord a, Num a) => a
  --Q 9 If the type of kessel is (Ord a, Num b) => a -> b -> a, then the type of kessel (1 :: Integer) 2 is Integer
 
+
+-- Section 5.5 Polymorphism
  --Exercises: Parametricity
  -- Q1
 pA :: a -> a
