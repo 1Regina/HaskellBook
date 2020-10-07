@@ -6,3 +6,4 @@ others/
 # ignore the files
 .yaml
 .yaml.lock
+.DS_Store
