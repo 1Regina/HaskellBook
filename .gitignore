@@ -10,5 +10,5 @@ others/
 *stack*
 
 # ignore certain files
-*Ch11.18*
-*Ch12*
+# *Ch11.18*
+# *Ch12*
