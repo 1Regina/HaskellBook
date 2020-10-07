@@ -4,9 +4,9 @@
 others/
 
 # ignore the files
-.yaml
-.yaml.lock
-.DS_Store
+.yaml/
+.yaml.lock/
+.DS_Store/
 
 # ignore certain files
 *Ch11.18*
