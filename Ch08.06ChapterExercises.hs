@@ -146,8 +146,8 @@ sums n = if n > 1
         else n + sums (n + 1)
       
         
--- >>> sums 2
--- 3
+-- >>> sums 3
+-- 6
 --
 
 --Q3 (WRONG)
@@ -160,6 +160,14 @@ mult x y = go x y 0 where
 -- >>> mult 2 3
 -- <interactive>:298:2-5: error:
 --     Variable not in scope: mult :: Integer -> Integer -> t
+--
+
+mult1:: (Integral a) => a -> a -> a
+mult1 0 = const 0
+mult1 n = \x -> n + mult1 (n - 1) x 
+
+-- >>> mult1 2 3
+-- 3
 --
 
 --Q4 
