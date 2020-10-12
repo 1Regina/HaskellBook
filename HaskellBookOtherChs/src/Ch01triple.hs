@@ -1,16 +1,29 @@
-module Maths where 
-triple x = x * 3 
+module Ch01triple where 
+triple :: Num a => a -> a
+triple x1 = x1 * 3 
 
-half x = x / 2
+half :: Fractional a => a -> a
+half x2 = x2 / 2
 
-square x = x * x
+square :: Num a => a -> a
+square x3 = x3 * x3
 
 
-piSquare x = pi * (x * x)
+piSquare :: Floating a => a -> a
+piSquare x4 = pi * (x4 * x4)
 
 
+x :: Integer
 x = 7
+y :: Integer
 y = 10
+f :: Integer
 f = x + y    
 
+-- >>> square 5
+-- 25
+--
 
+-- >>> 5 + 3
+-- 8
+--
