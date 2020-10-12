@@ -1,3 +1,4 @@
+module Maths where 
 triple x = x * 3 
 
 half x = x / 2
