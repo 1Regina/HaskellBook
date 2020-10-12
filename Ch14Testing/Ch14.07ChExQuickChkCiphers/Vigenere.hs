@@ -1,8 +1,8 @@
-module Cipher where
 module Vigenere where
 import Control.Monad
 import Data.Char
 import System.Exit (exitSuccess)
+import Test.QuickCheck
 
 -- chrchr :: Int -> Char
 -- ordord :: Char-> Int
@@ -66,3 +66,13 @@ decodeInput = do
   putStrLn "Input codeword"
   codeword <- getLine
   putStrLn $ unVigenere keyword ciphertext 
+
+
+vigenereIdentity :: String -> String -> Bool
+vigenereIdentity keyword plaintext = (unVigenere keyword (vigenere keyword plaintext ) ) == plaintext
+
+qc_vigenereIdentity :: IO ()
+qc_vigenereIdentity = do
+      quickCheck vigenereIdentity
+
+-- cannot test properly due to done only in small letters
