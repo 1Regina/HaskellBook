@@ -1,13 +1,13 @@
 # ignore the folders
 .stack-work/
-.vscode/
+# .vscode/
 others/
 
 # ignore the files
-*.yaml
-*.yaml.lock
+# *.yaml
+# *.yaml.lock
 *.DS_Store/
-*stack*
+# *stack*
 
 # ignore certain files
 # *Ch11.18*
