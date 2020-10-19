@@ -1,3 +1,4 @@
+-- Building functions Q5
 module Reverse where
 
 rvrs :: String -> String
@@ -12,3 +13,8 @@ rvrs string = last ++ middle ++ first
        middle = drop 5 firstMiddle
        last = drop 9 string
 
+-- Q6
+main :: IO ()
+-- main = print (rvrs "Curry is awesome")
+-- alternatively
+main = print $ rvrs "Curry is awesome"

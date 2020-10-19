@@ -23,6 +23,7 @@ main = do
         (++) "hello" ((++) " "  world)
 
 -- area :: Int
+area :: Floating a => a -> a
 area d = pi * (r * r)
   where r = d/2
 

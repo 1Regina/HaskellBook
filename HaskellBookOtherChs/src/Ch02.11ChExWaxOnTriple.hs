@@ -24,13 +24,18 @@
 --             z = y * 10
 
 module TripleWaxOn where
-  waxOn = x * 5
-   where  
-    z = 7 
-    y = z + 8
-    x = y ^ 2
-  triple x = x * 3
+waxOn :: Integer  
+waxOn = x * 5
+    where  
+        z = 7 
+        y = z + 8
+        x = y ^ 2
 
-  waxOff x = triple x 
+triple :: Num a => a -> a
+triple x = x * 3
 
-  waxOffSq x =  (^) (triple x) $2
+waxOff :: Num a => a -> a
+waxOff = triple  
+
+waxOffSq :: Num a => a -> a
+waxOffSq x =  (^) (triple x) 2  
