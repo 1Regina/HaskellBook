@@ -45,4 +45,4 @@ munge :: (x -> y)           -- x2y take an argument of type x and outputs an arg
       -> x                  -- an argument of type x
       -> w                  -- returns type w variable
 
-munge x2y t2wz xis =  y2wz (x2y xis)
+munge x2y y2wz x' = fst.y2wz $ x2y x' -- = fst $ ywz $ xy x

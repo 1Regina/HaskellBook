@@ -1,4 +1,6 @@
 module GreetIfCool2 where
+
+    -- not optimal but still pass
 greetIfCool :: String -> IO ()
 greetIfCool coolness = 
     if cool coolness
@@ -14,6 +16,7 @@ greetIfCool coolness =
 -- pshhhh.
 --
 
+-- This is better
 -- module GreetIfCool1 where 
 greetIfCool1 :: String-> IO()
 greetIfCool1 coolness = 

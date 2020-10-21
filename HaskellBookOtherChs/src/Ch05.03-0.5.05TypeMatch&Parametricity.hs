@@ -41,9 +41,10 @@ pB :: a -> a -> a
 pB x y = x
 pB' x y = y
 
+
+-- Q3
 pC :: a -> b -> b
 pC x y = y
-pC' x y = x 
 -- Doesnt change behaviour
 
 

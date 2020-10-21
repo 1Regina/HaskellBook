@@ -20,7 +20,12 @@ settleDown x = if x == Woot
 --     * No instance for (Ord Mood) arising from a use of `>'
 --     * In the expression: settleDown Blah > Woot
 --       In an equation for `it': it = settleDown Blah > Woot
+
+-- >>> settleDown Woot
+-- Blah
 --
+
+
 -- --Q3
 -- a) only Woot and Blah are acceptable values
 -- b) error arise because Num  (for 9) has no instance for Mood
@@ -33,8 +38,17 @@ type Object = String
 
 data Sentence =  Sentence Subject Verb Object deriving (Eq, Show)
 
--- s1 = Sentence "dogs" "drool"
--- s2 = Sentence "Julie" "loves" "dogs"
+s1 = Sentence "dogs" "drool"
+s2 = Sentence "Julie" "loves" "dogs"
+-- >>> s2
+-- Sentence "Julie" "loves" "dogs"
+-- >>> s1 -- not enough arguments for Sentence
+-- <interactive>:902:2-3: error:
+--     • No instance for (Show (Object -> Sentence))
+--         arising from a use of ‘print’
+--         (maybe you haven't applied a function to enough arguments?)
+--     • In a stmt of an interactive GHCi command: print it
+
 
 
 -- s1 and s2 are currying with data constructor Sentence acting like a function
@@ -52,10 +66,13 @@ data Rocks = Rocks String deriving (Eq, Show)
 data Yeah = Yeah Bool deriving (Eq, Show)
 
 data Papu = Papu Rocks Yeah deriving (Eq, Show)
-
+-- to tyoecheck would need Papu (Rocks String) (Yeah Bool)
 --Q1 - no
 -- phew = Papu "chases" True -- wont type check bcos data constructors Rocks and Yeah are functions
 phew = Papu (Rocks "chases") (Yeah True)
+-- >>> phew
+-- Papu (Rocks "chases") (Yeah True)
+--
 
 --Q2 - yes
 truth = Papu (Rocks "chomskydoz")
@@ -67,10 +84,9 @@ equalityForall :: Papu -> Papu -> Bool
 equalityForall p p' = p == p'
 --Papu has Eq instances
 
---Q4 -no
+--Q4 -no bcos Eq is a superclass of Ord but not the other way round
 -- comparePapus :: Papu -> Papu -> Bool
 -- comparePapus p p' = p > p'
-
 --No instance for (Ord Papu).
 
 -- Match the types
@@ -79,9 +95,12 @@ equalityForall p p' = p == p'
 -- i = 1
 
 -- Q1b 
--- i :: a
--- i = 1
--- -- Cannot. No instance for (Num a) arising from the literal `1' bcos 1 is not parametrically polymorphic
+i :: a
+i = 1
+-- >>> i
+-- <interactive>:2075:2: error: Variable not in scope: i
+
+ -- Cannot. No instance for (Num a) arising from the literal `1' bcos 1 is not parametrically polymorphic
 
 -- Q2a
 -- f :: Float
@@ -91,14 +110,15 @@ equalityForall p p' = p == p'
 -- f1 = 1.0 
 -- Cannot type check as there is only Num Float, no Float Num. Float is a subclass of Num
 
--- -- Q3a
+-- -- Q3a 
 -- f :: Float
 -- f = 1.0
 
 -- -- Q3b
 -- f1 :: Fractional a => a
 -- f1 = 1.0
--- -- Can type check as Fractional is polymorphic for 1.0
+-- Can type check as Fractional is polymorphic for 1.0
+
 
 -- Q4a
 f :: Float
@@ -177,7 +197,7 @@ signifier xs = head (mySort xs)
 signifier' :: Ord a => [a]-> a
 signifier' xs = head (mySort xs)
 -- Can bcos strings has Ord instances[Wrong]
--- mySort is a string and cannot be generalised back as any Ord a
+-- mySort takes a string and returns a string
 
 --TYPE-KWON-DO TWO
 --Q1
@@ -187,5 +207,5 @@ chk f p q = f p == q
 
 --Q2 [Need help]
 arith :: Num b => (a -> b) -> Integer -> a -> b
-arith f a b = fromInteger(x) + f(y)
-      
+-- arith f x y = fromInteger(x) + f(y)
+arith a2b _ a = a2b a      -- this is better

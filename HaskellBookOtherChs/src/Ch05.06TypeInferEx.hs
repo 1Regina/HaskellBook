@@ -34,10 +34,10 @@
 -- ie put in a character and returns a Bool
 
 --MCQ
--- Q1: A value of type [a] is : c)   a list of elements that are all of some type a
--- Q2: A function of type[[a]] -> [a] could: a)   take a list of strings as an argument
--- Q3: A function of type[a] -> Int -> a : b)   returns one element of typeafrom a list
--- Q4: A function of type(a, b) -> a: c)   takes a tuple argument and returns the first value
+-- Q1: A value of type [a] is               : c)   a list of elements that are all of some type a
+-- Q2: A function of type[[a]] -> [a] could : a)   take a list of strings as an argument
+-- Q3: A function of type [a] -> Int -> a   : b)   returns one element of type a from a list
+-- Q4: A function of type (a, b) -> a       : c)   takes a tuple argument and returns the first value
 
 
 --{-# LANGUAGE NoMonomorphismRestriction #-}
@@ -45,12 +45,12 @@
 module DetermineTheType where
 -- simple exampleexample=1
 --Q1
--- a) (* 9) 6 :: Num a->a ; Value = 54
--- b) head [(0,"doge"), (1,"kitteh")] :: Num a => (a, [Char]); Value = (0, "doge")
--- c) head [(0:: Integer,"doge"), (1,"kitteh")] :: (Integer, [Char]); Value = (0, "doge")
--- d) if False then True else False :: Bool; Value = False
--- e) length [1, 2, 3, 4, 5] :: Int ; Value = 5
--- f) (length [1, 2, 3, 4]) > (length "TACOCAT" ) :: Bool ;  Value = False
+-- a) (* 9) 6 :: Num a-> a ; Value = 54
+-- b) head [(0,"doge"), (1,"kitteh")] produces :: Num a => (a, [Char]); Value = (0, "doge")
+-- c) head [(0:: Integer,"doge"), (1,"kitteh")] produces :: (Integer, [Char]); Value = (0, "doge")
+-- d) if False then True else False produces :: Bool; Value = False
+-- e) length [1, 2, 3, 4, 5] produces :: Int ; Value = 5
+-- f) (length [1, 2, 3, 4]) > (length "TACOCAT" ) produces :: Bool ;  Value = False
 
 --Q2
 x = 5
@@ -95,9 +95,9 @@ z = x "hello world"
 a = (+)
 b = 5 
 c = b 10  -- No expression to describe c function 
-Fix: c = b + 10
+Fix: c = a b 10 -- =  b + 10 
 d = c 200 -- No expression to describe d function
-Fix: d = c + 200 
+Fix: d = a c 200-- c + 200 
 
 --Q4
 a = 12 + b
@@ -108,21 +108,21 @@ b = 10000 * c -- c is unknowns. There are undefined
 -- Variable or Specific Type Constructor
 --Q2
 f :: zed [1] -> Zed [2] -> Blah[3]
-         [1] fully polymorphic -> [2] concrete -> [3] concrete
+         [1] fully polymorphic -> [2] concrete -> [3] concrete bcos concrete are capitalised
 
 --Q3
 f :: Enum b [1] => a [2] -> b [3] -> C [4]
-            [1] constrained polymorphic type variable -> [2] full polymorphic -> [3] constrained -> concrete
+            [1] constrained polymorphic type variable -> [2] full polymorphic -> [3] constrained -> [4]concrete (bcos capitalised)
             [2] is full polymorphic bcos it is not another b
 
 --Q4 
 f :: f [1] -> g [2] -> C [3]
-       [1] fully polymorphic -> [2] fully polymorphic -> [3] concrete
+       [1] fully polymorphic -> [2] fully polymorphic -> [3] concrete bcos capitalised
 
 
 -- Type Signature
 --Q1
-functionH :: a -> a
+functionH :: [a] -> a
 functionH (x :_)  = x
 
 --Q2
@@ -151,14 +151,14 @@ i = id a
 
 --Q2 
 c :: a -> b  -> a
-c aei bee 
+c aei bee  = aei
      i) takes an agurment of type a
     ii) takes an argument of type b
    iii) finally returns an arugment of type a
 
 --Q3
 c'' :: b -> a -> b
-c'' bee aei 
+c'' bee aei = bee
     i) takes an argument of type b
    ii) takes an arugment of type a
   iii) finally returns an arugment of type b
@@ -168,7 +168,7 @@ c' aei bee = c'' bee aei
 
 --Q4 ~ like take
 c' :: a -> b -> b
-c aei bee 
+c aei bee = bee
      i) takes an agurment of type a
     ii) takes an argument of type b
    iii) finally returns an arugment of type b
@@ -192,7 +192,9 @@ a' :: (a -> c) --aToc takes an argument of type a and outputs an arugment of typ
    -> a        -- an argument of type a
    -> a        -- returns type a variable
 
-a' aToc a  = aToc a
+-- a' aToc a  = aToc a -- incorrect
+a' f a  = id a 
+a' f = id
 
 --Q8
 a' :: (a -> b) -- aTob takes an argument of type a and outputs an argument of type b
