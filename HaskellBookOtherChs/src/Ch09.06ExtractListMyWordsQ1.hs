@@ -5,13 +5,13 @@ myWords []       = []
 myWords (' ':s)  = myWords s  -- required to avoid an infinite ,
 myWords s        = w : myWords t
   where
-    w = takeWhile (/= ' ') s -- takes fist word and put ' '
-    t = dropWhile (/= ' ') s -- takes after first word and put ''
+    w = takeWhile (/= ' ') s -- takes every space with letter
+    t = dropWhile (/= ' ') s -- gets rid of the spaces between words
 
 -- >>>  myWords "sheryl has fun alot"
 -- ["sheryl","has","fun","alot"]
 --
---PREFERRED
+
 myWords' :: String -> [String]
 myWords' "" = []
 myWords' x

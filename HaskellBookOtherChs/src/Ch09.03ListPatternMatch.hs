@@ -24,7 +24,7 @@
  -- [2,3,4,5]
  --
  
--- ONLY can run in Prelude
+-- ONLY can run in Prelude :{ ... :}
 data Maybe a = Nothing | Just a deriving Show
 safeTail :: [a] -> Maybe [a]
 safeTail      []     = Nothing
@@ -33,5 +33,5 @@ safeTail ( _ : xs )  = Just xs
 
 safeHead :: [a] -> Maybe a
 safeHead      []      = Nothing
--- safeHead  ( [] : _ )  = Nothing --not necessary
+-- safeHead  ( _ : [] )  = Nothing --if want to take care of [a] cases and return Nothing
 safeHead  ( xs : _ )  = Just xs

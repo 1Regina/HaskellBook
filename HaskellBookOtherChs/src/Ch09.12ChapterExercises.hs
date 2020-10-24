@@ -58,9 +58,20 @@ capHead1 = toUpper. head
 myOr :: [Bool] -> Bool
 myOr [] = False
 myOr (x:xs) = x || myOr xs
--- myOr (x:xs) = if x then True else myOr xs
 -- >>> myOr [True, False, True]
 -- True
+--
+
+
+myOr' :: [Bool] -> Bool
+myOr' [] = False
+myOr' (x:xs) = if (x == True) 
+                    then True 
+                 else myOr' xs
+-- >>> myOr' [True, False, True]
+-- True
+--
+
 --
 -- Q2
 myAny :: (a -> Bool) -> [a] -> Bool

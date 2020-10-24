@@ -13,23 +13,43 @@ myVal1 f = myNum
 --
 -- type p is polymorphic and f is maximally polymorphic
 -- 
-myNum = 1:: Integer
+-- myNum = 1:: Integer
 myVal2 f = f + myNum
 -- >>> :t myVal2
 -- myVal2 :: Integer -> Integer
---
-myNum' = 1:: Integer
+
+myNum' = 1 :: Integer
 myVal3 f g = myNum'
 -- :t myVal3 should be myVal3 :: t -> t1 -> Integer
+-- >>> :t myNum'
+-- myNum' :: Integer
 -- >>> :t myVal3
--- (Error while loading modules for evaluation)
--- [1 of 1] Compiling Main             ( C:\Users\regina\Desktop\SMU\HaskellBook\Ch07FunctionParameters.hs, interpreted )
--- <BLANKLINE>
--- C:\Users\regina\Desktop\SMU\HaskellBook\Ch07FunctionParameters.hs:16:1-5: error:
---     Multiple declarations of `myNum'
---     Declared at: C:\Users\regina\Desktop\SMU\HaskellBook\Ch07FunctionParameters.hs:2:1
---                  C:\Users\regina\Desktop\SMU\HaskellBook\Ch07FunctionParameters.hs:16:1
--- Failed, no modules loaded.
+-- myVal3 :: p1 -> p2 -> Integer
+--
 
-myVal f g h = myNum
--- :t myVal should return myVal :: t -> t1 -> t2 -> Integer
+myVal4 f g h = myNum
+-- >>> :t myVal4
+-- myVal4 :: p1 -> p2 -> p3 -> Integer
+--
+
+
+bindExp :: Integer-> String
+bindExp x = 
+    let y = 5 in
+        -- let z = y + x in 
+             "the integer was: " ++ show x 
+               ++ " and y was: " ++ show y
+            --    ++ " and z was: " ++ show z
+-- >>> bindExp 7
+-- "the integer was: 7 and y was: 5"
+--
+bindExp1 :: Integer-> String
+bindExp1 x = 
+    let y = 5 in
+        let z = y + x in 
+             "the integer was: " ++ show x 
+               ++ " and y was: " ++ show y
+               ++ " and z was: " ++ show z
+-- >>> bindExp1 7
+-- "the integer was: 7 and y was: 5 and z was: 12"
+--

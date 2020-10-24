@@ -24,13 +24,13 @@ tensDigit :: Integral a => a -> a
 tensDigit x = d
   where (xLast, _) = x `divMod` 10
         (_, d)     = xLast `divMod` 10
+        -- divMod returns a tuple (multiper, remainder)
 -- >>> tensDigit 49
 -- 4
 
--- >>> tensDigit 1253
+-- >>> tensDigit 1254
 -- 5
 --
-
 --
 --Q1b yes same type
 --Q1c
@@ -62,35 +62,21 @@ hunsD3 = (`mod` 10) . (`div` 100)
 foldBool :: a -> a -> Bool -> a 
 -- foldBool = 
 --   error "Error: Need to implement foldBool!"
-foldBool x y z =
-  case z of
+foldBool x y boo =
+  case boo of
     True -> x
     False -> y
--- >>>  foldBool x y True
--- <interactive>:3784:12: error: Variable not in scope: x
--- <BLANKLINE>
--- <interactive>:3784:14: error: Variable not in scope: y
---
-
--- foldBool1 :: a -> a -> Bool -> a 
--- foldBool1 x y outcome = 
---   case outcome of 
---     True -> x
---     False -> y
 
 -- >>>  x _ False
 
 --
 foldBool2 :: a -> a -> Bool -> a
-foldBool2 x y condition
-  | condition == True = x
+foldBool2 x y boo
+  | boo == True = x
   | otherwise = y
 
--- >>>foldBool2 x y False
--- <interactive>:4338:11: error: Variable not in scope: x
--- <BLANKLINE>
--- <interactive>:4338:13: error: Variable not in scope: y
---
+-- >>>foldBool2 x _ False
+
 
 --Q3
 g :: (a -> b ) 

@@ -1,3 +1,21 @@
+-- Examples
+g x = if x + 1 == 1 
+        then "AWESOME" 
+      else "wut"
+-- >>> g 0
+-- "AWESOME"
+--
+
+
+funcZ x = 
+    case x + 1 == 1 of
+        True  -> "AWESOME"
+        False -> "wut"
+
+-- >>> funcZ 0
+-- "AWESOME"
+--
+
 --Q1
 functionC x y = 
     if (x > y) 
@@ -55,6 +73,19 @@ ifEvenAdd2' n =
 --
 -- >>> ifEvenAdd2' 9
 -- 9
+--
+
+ifEvenAdd2'' n =
+    case isEven of
+        True  -> n + 2
+        False -> n
+    where isEven = n `rem` 2 == 0   
+
+-- >>> ifEvenAdd2'' 7
+-- 7
+
+-- >>> ifEvenAdd2'' 14
+-- 16
 --
 
 --Q3

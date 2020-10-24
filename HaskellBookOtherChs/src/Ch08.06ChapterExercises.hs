@@ -98,7 +98,7 @@ frappe = flippy"haha"
 --     where go n d count
 --     | n < d = (count, n)
 --     | otherwise =
---     go (n - d) d (count + 1)
+--         go (n - d) d (count + 1)
 
 -- data DividedResult a = Result a | DividedByZero deriving Show
 
@@ -149,6 +149,15 @@ sums n = if n > 1
 -- >>> sums 3
 -- 6
 --
+-- BEST
+summin :: (Eq a, Num a) => a -> a
+summin 0 = 0
+summin n = n + summin (n-1) 
+
+-- >>> summin 5
+-- 15
+--
+
 
 --Q3 (WRONG)
 mult :: (Integral a) => a -> a -> a

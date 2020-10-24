@@ -23,11 +23,18 @@ take 5 [ (x, y) | x <- mySqr ,
 -- Ans [(1,64),(1,81),(1,100),(4,64),(4,81)]
 
 
+-- ok in prelude
+let acro xs = [x | x <- xs, 
+               elem x ['A'..'Z']]                 
+-- >>> acro "Three Letter Acronym"
+-- (Error while loading modules for evaluation)
 
-let acro xs =
-     [x | x <- xs,
-         elem x ['A'..'Z']]                 
--- >>> acro "uNfefHJHI"
+-- *Main Lib> :{
+-- *Main Lib| [x |
+-- *Main Lib| x <- "Three Letter Acronym",
+-- *Main Lib|  elem x ['A'..'Z']]  
+-- *Main Lib| :}
+-- "TLA"
 
 myString xs = [x | x <- xs, elem x "aeiou"]
--- take the string of words and return vowels
+-- -- take the string of words and return vowels

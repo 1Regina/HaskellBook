@@ -26,3 +26,24 @@ shouldEqual = [ "Tyger Tyger, burning bright", "In the forests of the night", "W
 --
 main :: IO ()
 main = print $ "Are they equal? " ++ show (myLines sentences == shouldEqual)
+
+
+--alternative
+-- mapM_ found at: https://stackoverflow.com/questions/5289779/printing-elements-of-a-list-on-new-lines
+demo2 :: IO ()
+demo2 = do
+  putStrLn "Exercise 2:"
+  putStrLn sentences
+  mapM_ putStrLn (myLines sentences)
+
+-- >>> demo2
+-- Exercise 2:
+-- Tyger Tyger, burning bright
+-- In the forests of the night
+-- What immortal hand or eye
+-- Could frame thy fearful symmetry?
+-- Tyger Tyger, burning bright
+-- In the forests of the night
+-- What immortal hand or eye
+-- Could frame thy fearful symmetry?
+--

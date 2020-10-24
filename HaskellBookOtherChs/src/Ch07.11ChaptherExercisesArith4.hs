@@ -25,8 +25,10 @@ roundTrip1 :: (Show a, Read b) => a -> b
 roundTrip1 = read.show 
 
 q6 = do
-  print (roundTrip1 7 :: Int)
+  print (roundTrip1 4 :: Int)
+  print $ id 4
 
 -- >>> q6
--- 7
+-- 4
+-- 4
 --
