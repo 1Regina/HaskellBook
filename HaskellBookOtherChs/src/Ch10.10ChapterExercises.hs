@@ -86,12 +86,15 @@ myElemF :: Eq a => a -> [a] -> Bool
 myElemF x = foldr ((||) . (== x)) False
 -- >>> myElemF 1 [1..10]
 -- True
+
+
 --Q4
 myReverse :: [a] -> [a]
 -- myReverse = foldr (\a b -> b ++ [a]) []
 myReverse = foldl (flip (:)) [] -- see pg 566
 -- >>> myReverse "blah"
 -- "halb"
+
 --Q5
 myMap :: (a->b) -> [a] -> [b]
 myMap f = foldr ((:).f) []

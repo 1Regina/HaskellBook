@@ -31,6 +31,17 @@ isSubseqOf portion@(x:xs) (y:ys)
 -- >>> isSubseqOf "blah" "blah"
 -- True
 
+-- >>>  isSubseqOf "blah" "wootblah"
+-- True
+--
+-- >>> isSubseqOf "blah" "halbwoot"
+-- False
+--
+
+-- >>>  isSubseqOf "blah" "blawhoot"
+-- True
+--
+
 --Q2
 capitalizeWords :: String -> [(String, String)]
 capitalizeWords [] = []
@@ -45,6 +56,7 @@ capitalizeWords x  = concat ( map capitalizeWords' (words x)) where
 
 -- >>>  capitalizeWords "hello porld"
 -- [("Hello","hello"),("Porld","porld")]
+
 
 
 -- Language Exercises
@@ -73,6 +85,7 @@ capitalizeParagraph x = unwords $ go (words x) True where
 
 -- >>> capitalizeParagraph  "blah. woot ha."
 -- "Blah. Woot ha."
+
 
 -- Hutton's Razor
 -- Q1

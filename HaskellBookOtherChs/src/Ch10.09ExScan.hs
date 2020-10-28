@@ -28,3 +28,6 @@ factorial = scanl (*) 1 [1..]
 -- >>> factorial !! 3
 -- 6
 --
+-- >>> take 5 factorial
+-- [1,1,2,6,24]
+--

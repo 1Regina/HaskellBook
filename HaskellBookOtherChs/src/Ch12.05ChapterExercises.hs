@@ -25,6 +25,8 @@ notThe "the" = Nothing
 notThe s = Just s
 
 -- >>>   notThe "the"
+-- Nothing
+--
 
 notThe' :: String -> Maybe String
 notThe' x = if  x /= "the"
@@ -32,6 +34,8 @@ notThe' x = if  x /= "the"
             else Nothing
 
 -- >>> notThe' "the"
+-- Nothing
+--
 
 
 -- >>> 2 + 3
@@ -91,6 +95,11 @@ isVowel = (`elem` "aeiou")
 -- extract all the vowels
 stringVowel :: String -> String
 stringVowel = filter isVowel 
+-- >>> stringVowel "pound"
+-- "ou"
+-- >>> filter  ( `elem` "aeiou") "pound"
+-- "ou"
+--
 
 -- use length to find the no. of elements
 countVowels :: String -> Int
@@ -112,6 +121,12 @@ mkWord:: String-> Maybe Word'
 mkWord x = if countConsonant x >= countVowels x   
            then Just (Word' x)
            else Nothing
+
+-- >>> mkWord "pound"
+-- Just (Word' "pound")
+-- >>> mkWord "lie"
+-- Nothing
+--
 
 -- another solution
 mkWord' word
@@ -176,7 +191,7 @@ mayybee _ f (Just x) = f x
 --
 --Q3
 fromMaybe :: a -> Maybe a -> a
-fromMaybe x Nothing = x
+fromMaybe x Nothing  = x
 fromMaybe _ (Just x) = x
 
 fromMaybe' :: a -> Maybe a -> a
@@ -227,7 +242,9 @@ catMaybes ((Just x) : xs) = x : (catMaybes xs)
 -- >>>  catMaybes [Just 1, Nothing, Just 2]-- [1,2]
 
 -- let xs = take 3 $ repeat Nothing ie xs = [Nothing, Nothing, Nothing]
+
 --  >>> catMaybes xs
+
 
 -- Q6 - - Refererred
 flipMaybe :: [Maybe a] -> Maybe [a]
@@ -268,13 +285,13 @@ rights' = foldr f []
   where
     f (Right x) xs  = x:xs
     f (Left _) xs = xs
-
---Q3
+ 
+ --Q3 
 partitionEithers'::[Either a b]->([a], [b])
 partitionEithers' = foldr partition ([], [])
   where 
-    partition (Left a) (x, xs) = (a:x, xs)
-    partition (Right b) (x, xs) = (x, b: xs)
+    partition (Left a) (x, xs) = (a:x, xs) -- if a is smaller than head of list, then take list a to the 1st element
+    partition (Right b) (x, xs) = (x, b: xs)  -- if a is bigger than head of list, then take list from b to last element
 
 --Q4
 eitherMaybe' ::(b->c)-> Either a b-> Maybe c
@@ -291,7 +308,7 @@ eitherMaybe''::(b->c)-> Either a b-> Maybe c
 -- eitherMaybe'' _ (Left _) = Nothing
 -- eitherMaybe'' f (Right y) = Just(f y)
 
-eitherMaybe'' f = either (const Nothing) (Just . f )
+eitherMaybe'' f = either' (const Nothing) (Just . f )
 
 
 -- Iterate and unfoldr

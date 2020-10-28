@@ -20,6 +20,9 @@ agee (MkPerson _ n) = n
 -- "julie1"
 --
 
+
+-- Record Syntax
+
 data Person = 
     Person { name :: String, 
              age:: Int} 

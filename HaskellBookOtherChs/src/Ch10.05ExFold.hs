@@ -1,5 +1,14 @@
 --Fold
---Q1 foldr(*) 1 [1..5] gives 80
+--Q1 foldr(*) 1 [1..5] gives 120
+
+Prelude Debug.SimpleReflect> mapM_ print $ reduction $ foldr (*) 1 [1..5]
+1 * (2 * (3 * (4 * (5 * 1))))
+1 * (2 * (3 * (4 * 5)))
+1 * (2 * (3 * 20))
+1 * (2 * 60)
+1 * 120
+120
+
 -- >>> foldr(*) 1 [1..5]
 -- 120
 --
@@ -15,12 +24,26 @@
 --         it :: forall a. (Num a, Num [a], Enum a) => [a]
 --
 --b)
+Prelude Debug.SimpleReflect> mapM_ print $ reduction $ foldl (flip (*)) 1 [1..5]
+5 * (4 * (3 * (2 * (1 * 1))))
+5 * (4 * (3 * (2 * 1)))
+5 * (4 * (3 * 2))
+5 * (4 * 6)
+5 * 24
+120
 -- >>>foldl(flip (*)) 1 [1..5]
 -- 120
 -- >>> scanl (flip (*)) 1 [1..5]
 -- [1,1,2,6,24,120]
 --
 --c) 
+Prelude Debug.SimpleReflect> mapM_ print $ reduction $ foldl  (*) 1 [1..5]
+1 * 1 * 2 * 3 * 4 * 5
+1 * 2 * 3 * 4 * 5
+2 * 3 * 4 * 5
+6 * 4 * 5
+24 * 5
+120
 -- >>> foldl(*) 1 [1..5]
 -- 120
 --
@@ -28,7 +51,13 @@
 -- [1,1,2,6,24,120]
 --
 -- Since (*) is commutative, (flip (*)) == (*) and so is the same as c).
+
 --Q2 Since (*) is commutative, (flip (*)) == (*)
+Prelude Debug.SimpleReflect> mapM_ print $ reduction $ foldl (flip (*)) 1 [1..3]
+3 * (2 * (1 * 1))
+3 * (2 * 1)
+3 * 2
+6
 -- >>> foldl(flip (*)) 1 [1..3]
 -- 6
 -- >>> scanl (flip (*)) 1 [1..3]
@@ -72,6 +101,7 @@
 --e)
 -- >>> foldr ((++).show) "" [1..5]
 -- "12345"
+
 --
 -- e) Given, foldl ((++) . show) "" [1..5]
 
