@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      Ch10NotesFoldlvsFoldr
       Lib
   other-modules:
       Paths_HaskellBook

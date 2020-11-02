@@ -46,3 +46,10 @@
 -- y = Last (Just 2)
 -- >>> x `mappend` y
 -- Last {getLast = Just 2}
+
+
+-- class Monoid m where  
+--    mempty :: m 
+--    mappend :: m -> m -> m  
+--    mconcat :: [m] -> m 
+--    mconcat = foldr mappend mempty 
