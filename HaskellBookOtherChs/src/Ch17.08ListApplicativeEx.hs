@@ -3,7 +3,7 @@ module ListApplicative where
 import Control.Applicative
 import Data.Monoid
 import Test.QuickCheck
-import Test.QuickCheck.Checkers
+import Test.QuickCheck.Checkers -- need to add checkers in HaskellBook.cabal and also package.yaml. Small letter for hidden libraries
 import Test.QuickCheck.Classes
 
 

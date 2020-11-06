@@ -23,6 +23,7 @@ dependencies:
 - base >= 4.7 && < 5
 - simple-reflect
 - QuickCheck
+- checkers
 library:
   source-dirs: src
 

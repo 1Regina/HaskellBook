@@ -9,10 +9,10 @@ import System.Exit(exitSuccess)-- [5]
 import System.IO (BufferMode(NoBuffering),
                   hSetBuffering,
                   stdout)-- [6]
-import System.Random (randomRIO)-- [7] --fail to load
+import System.Random (randomRIO)-- [7] --fail to load. Add into additions.cabal
 -- import System.Random(randomIO) 
 import System.IO
-import Test.Hspec --added for Ch14.07 -- fail to load
+import Test.Hspec --added for Ch14.07 -- fail to load. Sorted after settling random
 
 -- First, had to add `deriving (Eq)` to Puzzle:
 data Puzzle =
@@ -68,8 +68,9 @@ main = hspec $ do
 --   word we're trying to guess
 --   characters we've filled in so far
 --   letters guessed so far
-data Puzzle = 
-  Puzzle String [Maybe Char] [Char]
+
+-- data Puzzle = 
+--   Puzzle String [Maybe Char] [Char]  deriving (Eq)
 
 
 instance Show Puzzle where
