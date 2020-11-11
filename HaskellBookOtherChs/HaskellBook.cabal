@@ -35,6 +35,7 @@ library
       QuickCheck
     , base >=4.7 && <5
     , checkers
+    , hspec
     , simple-reflect
   default-language: Haskell2010
 
@@ -50,6 +51,7 @@ executable HaskellBook-exe
     , QuickCheck
     , base >=4.7 && <5
     , checkers
+    , hspec
     , simple-reflect
   default-language: Haskell2010
 
@@ -66,5 +68,6 @@ test-suite HaskellBook-test
     , QuickCheck
     , base >=4.7 && <5
     , checkers
+    , hspec
     , simple-reflect
   default-language: Haskell2010

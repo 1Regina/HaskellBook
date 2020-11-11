@@ -24,6 +24,7 @@ dependencies:
 - simple-reflect
 - QuickCheck
 - checkers
+- hspec
 library:
   source-dirs: src
 

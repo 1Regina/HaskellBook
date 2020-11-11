@@ -6,9 +6,9 @@ module WorkingFunctor where
 
 -- Q1
 data Sum b a = First a | Second b -- flipped a and b  so first argument is ignored
-instance Functor (Sum e) where
+instance Functor (Sum a) where
   fmap f (First a)  = First (f a)
-  fmap f (Second b) = Second b
+  fmap _ (Second b) = Second b
 
 
 -- Q2
